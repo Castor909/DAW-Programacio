@@ -1,9 +1,9 @@
 
 public class MainClass {
   public static void main(String[] args) {
-    System.out.println(SumarPrimerosNumerosEnteros());
+    System.out.println(Sumar5PrimerosNumerosEnteros());
   }
-  private static int SumarPrimerosNumerosEnteros() {
+  private static int Sumar5PrimerosNumerosEnteros() {
     return 1+2+3+4+5;
   }
 }
