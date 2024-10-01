@@ -1,0 +1,49 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class MainClass {
+  public static void main(String[] args) {
+    System.out.println("Bienvenidas a Piedra-Papel-Tijeras!");
+    System.out.println("Escríbe 0 por Piedra, 1 por Papel y 2 por Tijeras.");
+    Scanner scanner = new Scanner(System.in);
+    String input = scanner.nextLine();
+    switch (input) {
+    case "0":
+        System.out.println("Elegiste Piedra!");
+        break;
+    case "1":
+        System.out.println("Elegiste Papel!");
+        break;
+    case "2":
+        System.out.println("Elegiste Tijeras!");
+        break;
+    default:
+        System.out.println("Fallaste!");
+        return;
+    }
+    
+    Random random = new Random();
+    String enemy = String.valueOf(random.nextInt(3));
+    if (input.equals(enemy)) {
+    System.out.println("Empate!");
+} else if (input.equals("0") && enemy.equals("1")) {
+    System.out.println("Enemigo eligió Papel!");
+    System.out.println("Perdiste!");
+} else if (input.equals("0") && enemy.equals("2")) {
+    System.out.println("Enemigo eligió Tijeras!");
+    System.out.println("Ganaste!");
+} else if (input.equals("1") && enemy.equals("0")) {
+    System.out.println("Enemigo eligió Piedra!");
+    System.out.println("Ganaste!");
+} else if (input.equals("1") && enemy.equals("2")) {
+    System.out.println("Enemigo eligió Tijeras!");
+    System.out.println("Perdiste!");
+} else if (input.equals("2") && enemy.equals("0")) {
+    System.out.println("Enemigo eligió Piedra!");
+    System.out.println("Perdiste!");
+} else if (input.equals("2") && enemy.equals("1")) {
+    System.out.println("Enemigo eligió Papel!");
+    System.out.println("Ganaste!");
+}
+  }
+}
