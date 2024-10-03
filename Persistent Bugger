@@ -1,0 +1,19 @@
+class Persist {
+	public static int persistence(long n) {
+        int counter=0;
+        while (n>=10) {
+            n = multiplyDigits(n);
+            counter++;
+        } 
+        return counter;
+	}
+    static long multiplyDigits(long n) {
+        long x = n % 10;
+        n/=10;
+        while(n>0){
+            x*=n%10;
+            n/=10;
+        }
+        return x;
+    }
+}
