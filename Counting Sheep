@@ -1,0 +1,9 @@
+class Kata {
+  public static String countingSheep(int num) {
+    StringBuilder sb = new StringBuilder();
+    for(int i = 0; i < num; i++) {
+      sb.append((i + 1) + " sheep...");
+    }
+    return sb.toString();
+  }
+}
