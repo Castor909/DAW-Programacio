@@ -1,0 +1,17 @@
+public class TenMinWalk {
+  public static boolean isValid(char[] walk) {
+    return (walk.length==10)&&samePlace(walk);
+  }
+  
+  static boolean samePlace(char[] walk) {
+    return howMany('n',walk)==howMany('s',walk)&&howMany('w',walk)==howMany('e',walk);
+  }
+  
+  static int howMany(char c, char[] walk) {
+    int result=0;
+    for(char w : walk) {
+      if (w==c) result++;
+    }
+    return result;
+  }
+}
