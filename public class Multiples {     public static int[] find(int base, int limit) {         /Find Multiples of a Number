@@ -1,0 +1,12 @@
+public class Multiples {
+    public static int[] find(int base, int limit) {
+                                                        // we will do it in 2 phases; first assess the size of the resulting array and then fill it with values
+        int arraySizeCounter = 0;                        
+        for (int i = base; i <= limit; i += base)       // increment the size of the resulting array until we surpass the limit
+          arraySizeCounter++;
+        int[] resultArray = new int[arraySizeCounter];  // create the resulting array of the size we have just assessed
+        for(int i = 0; i < arraySizeCounter; i++)       //fill the array incrementally multiplying the base
+          resultArray[i] = base * (i + 1);
+        return resultArray;
+    }
+}
