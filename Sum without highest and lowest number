@@ -1,0 +1,15 @@
+public class Kata
+{
+  public static int sum(int[] numbers) // we need to sum all the numbers but without the highest and lowest two numbers, even if there are two of any of them we should exclude just one
+  {
+    if (numbers==null || numbers.length < 2) return 0; //failproof conditions
+    int h = numbers[0], sum = 0; //setting highest and lowest as a first element as they will change later
+    int l = h;
+    for(int i = 0; i < numbers.length; i++) { //we sum every number and check if we have a new record low and high
+      sum+=numbers[i];
+      if (numbers[i] > h) h = numbers[i];
+      if (numbers[i] < l) l = numbers[i]; 
+    }
+    return sum - l - h; //we subtract the highest and lowest
+  }
+}
