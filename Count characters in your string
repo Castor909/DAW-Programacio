@@ -3,14 +3,16 @@ import java.util.HashMap;
 public class Kata {
     public static Map<Character, Integer> count(String str) {
         Map<Character, Integer> result = new HashMap<>();       //HashMap works as a list of pairs "key-value", where each value is unique, 
-                                                                //so if a pair with an already existing kay is added to the HashMap, it overwrites the value with a new one
+                                                                //so if a pair with an already existing kay is added to the HashMap, it overwrites the value with a new one.
+                                                                //This will be the map we return
 
-        for ( char letter : str.toCharArray()) {                //We go through each letter using conversion of the string to char array
+        for ( char letter : str.toCharArray()) {                //We go through each letter using conversion of the string to char array.
           int thisLetterCount = result.getOrDefault(letter, 0); //getOrDefault is a HashMap method which returns the value associated with a key that we give as an agrument;
-                                                                //if it doesn´t find this key, it returns null, so to avoid that we set the default value to return as 0
+                                                                //if it doesn´t find this key, it returns null, so to avoid that we set the default value to return as 0.
+                                                                //That way we can see if we have already found this symbol before in our string or not.
                                                                 
-          result.put(letter, thisLetterCount+1);                //if the pair key-value exists, we overwrite it with the existing value incremented by 1;
-                                                                //if it doesn´t, we just create a new pair to start counting thi letter
+          result.put(letter, thisLetterCount+1);                //If the pair key-value exists, we overwrite it with the existing value incremented by 1;
+                                                                //if it doesn´t, we just create a new pair to start counting this letter.
           }
         return result;
     }
