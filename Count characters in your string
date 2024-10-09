@@ -1,0 +1,17 @@
+import java.util.Map;
+import java.util.HashMap;
+public class Kata {
+    public static Map<Character, Integer> count(String str) {
+        Map<Character, Integer> result = new HashMap<>();       //HashMap works as a list of pairs "key-value", where each value is unique, 
+                                                                //so if a pair with an already existing kay is added to the HashMap, it overwrites the value with a new one
+
+        for ( char letter : str.toCharArray()) {                //We go through each letter using conversion of the string to char array
+          int thisLetterCount = result.getOrDefault(letter, 0); //getOrDefault is a HashMap method which returns the value associated with a key that we give as an agrument;
+                                                                //if it doesn´t find this key, it returns null, so to avoid that we set the default value to return as 0
+                                                                
+          result.put(letter, thisLetterCount+1);                //if the pair key-value exists, we overwrite it with the existing value incremented by 1;
+                                                                //if it doesn´t, we just create a new pair to start counting thi letter
+          }
+        return result;
+    }
+}
