@@ -1,0 +1,40 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+                                                             //we will use this class to create objects that will act as pairs "weight" - "sum of its digits"
+public class WeightSort implements Comparable<WeightSort>{   //implementing Comparable to be able so sort 1) by sum value 2) if it's equal sort by alphabetical order
+    String weight;                                           //weight field
+    int digitSum;                                            //sum field
+  
+    public String getWeight() {                              //method we will use in the sorting process
+        return weight;
+    }
+
+
+    @Override   
+    public int compareTo(WeightSort other) {                              //overriding the compareTo method to implement our sorting algorithm
+        int sumCompare = Integer.compare(this.digitSum, other.digitSum);  //sort by Sum value
+        if (sumCompare == 0)  return this.weight.compareTo(other.weight); //if the sum is the same, sort by alphabetical order of the string
+        return sumCompare;
+    }
+
+    public WeightSort(String w) {                //Constructor that takes in the number in string representation, saves it and calculates the sum of the digits
+        weight = w;                              //Save the weight value which is string
+        char[] digits = weight.toCharArray();    //take weight as a char array and sum the chars converting them to real int numbers 
+        int sum = 0;
+        for (char b : digits) sum += b-'0';
+        digitSum = sum;                          //Save the digits sum value which is int   
+    }
+
+    public static String orderWeight(String strng) {                                                  //the main method
+        String[] weights = strng.split(" ");                                                          //split the line into array of numbers but still in string
+        List<WeightSort> ranking = new ArrayList<>();                                                 //create a list to sort
+        for (String weight : weights) ranking.add(new WeightSort(weight));                            //fill the list with objects
+        Collections.sort(ranking);                                                                    //we sort the list, we defined the sorting algorithm so it will all work 
+        return ranking.stream().map(WeightSort::getWeight).collect(Collectors.joining(" "));          //use of Stream API to merge now sorted values of objects into resulting string
+
+    }
+
+    
+}
