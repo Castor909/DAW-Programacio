@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+
+class Solution{                     
+    public static int repeats(int [] arr){                                //remember: two numbers occur once and the rest occur only twice
+      int result = 0;                                                     //create a variable that we will use as a sum of array singles        
+        ArrayList<Integer> uniqueNumbers = new ArrayList<>();             //create an arraylist which after going through all the input array will contain only single numbers
+        for(int number : arr) {                                           //we go through all the input array to find the single numbers
+          if(!uniqueNumbers.contains(number)) uniqueNumbers.add(number);  //if the list doesn´t have this number, we add it
+          else uniqueNumbers.remove(Integer.valueOf(number));             //if the list contains this number, it means that this occurence is the second of two possible occurences,
+                                                                          //which means that it is not the number we are looking for, so we remove it
+        }
+        for(int number : uniqueNumbers) result += number;                 //we sum the unique numbers by accessing the content of the arraylist
+      return result;                                    
+    }
+}
