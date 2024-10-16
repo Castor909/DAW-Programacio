@@ -1,0 +1,10 @@
+public class SquareDigit {
+  public int squareDigits(int n) {
+      String result = "";                                    //string variable to keep adding squared digits
+      for (char digit : String.valueOf(n).toCharArray())  {  //convert input number into string and into char array to deal with each digit separately
+      int subtractedChar = digit-'0';                        //subtract char '0' to get int of the digit
+      int squaredDigit = (int)Math.pow(subtractedChar,2);    //get it squared, convert to int to get rid of the fractional part because the result of Math.pow is double
+      result = result.concat(String.valueOf(squaredDigit));  //convert the squared digit to string to add it to the resulting string                                                       
+      return Integer.parseInt(result);                       //convert the resulting string to int and return it
+  }
+}
