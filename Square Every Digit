@@ -1,0 +1,9 @@
+public class SquareDigit {
+
+  public int squareDigits(int n) {
+    String result = "";
+    for(int i = n % 10; i > 0; i = i / 10)
+      result = i*i + result;
+    return Integer.parseInt(result);  
+  }
+}
