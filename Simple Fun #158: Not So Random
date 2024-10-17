@@ -1,0 +1,20 @@
+class Kata {
+  public static String notSoRandom(int b, int w) {
+    while (b >= 2) {
+      b-=2;
+      w++;
+    }  
+    while (w >= 2) {
+      w-=2;
+      w++;
+    }  
+    while (b>=1 && w>=1) {
+      w--;
+      b--;
+      b++;
+    }
+    if(b==0 && w==1) return "White";
+    if(b==1 && w==0) return "Black";
+    return "Unsure";
+  }
+}
