@@ -1,0 +1,13 @@
+public class PigLatin {
+    public static String pigIt(String str) {
+        String result = "";                                    //prepare string to return
+        for(String word : str.split(" ")) {                    //cycle to go through each word one by one
+          if (!word.equals("!") &&!word.equals("?")) {         //we skip the punctuation and process all the rest
+            String fL = word.substring(0,1);                   //get the first letter
+            word = word.substring(1).concat(fL).concat("ay");  //update the value by taking the word without the first letter, adding it at the end and adding "ay"
+            }
+            result = result.concat(" ").concat(word);          //we append a space and the updated word to the result.
+        }
+        return result.substring(1);                            //we remove the space at the end that we dont't need
+    }
+}
