@@ -1,0 +1,13 @@
+public class ConsonantValue {
+    public static int solve(final String s) {
+      String[] substrings = s.split("[aeiou]");
+      int maxValue = 0;
+      int currentValue;
+      for(String substring : substrings)  {
+        currentValue=0;
+        for(char c : substring.toCharArray()) currentValue+=c-96;
+        if(currentValue>maxValue) maxValue=currentValue;
+      }
+        return maxValue;
+    }
+}
