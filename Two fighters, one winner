@@ -1,0 +1,22 @@
+public class Kata {
+  public static String declareWinner(Fighter fighter1, Fighter fighter2, String firstAttacker) {
+    // Your code goes here. Have fun!
+    Fighter attackingFighter, defendingFighter;
+    if(firstAttacker.equals(fighter1.name)) {
+      attackingFighter = fighter1;
+      defendingFighter = fighter2;
+    }
+    else {
+      attackingFighter = fighter2;
+      defendingFighter = fighter1;
+    }
+    while(attackingFighter.health>0 && defendingFighter.health>0){
+      defendingFighter.health-=attackingFighter.damagePerAttack;
+      if(defendingFighter.health<=0) return attackingFighter.name;
+      attackingFighter.health-=defendingFighter.damagePerAttack;
+      if(attackingFighter.health<=0) return defendingFighter.name;
+    }
+    return "";
+    
+  }
+}
