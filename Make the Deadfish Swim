@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+public class DeadFish {
+    public static int[] parse(String data) {
+        ArrayList<Integer> outputList = new ArrayList<Integer>();
+        int value = 0;
+        for(char c : data.toCharArray())  {
+          switch(c) {
+              case 'i':
+                value++;
+                break;
+              case 'd':
+                value--;
+                break;
+              case 's':
+                value*=value;
+                break;
+              case 'o':
+                outputList.add(value);
+                break;
+          }
+        }
+        int[] outputArray = new int[outputList.size()];
+        for(int i=0;i<outputList.size();i++)
+          {
+          outputArray[i] = outputList.get(i);
+        }
+        return outputArray;
+    }
+}
