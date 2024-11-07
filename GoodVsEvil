@@ -1,0 +1,24 @@
+public class GoodVsEvil {
+  
+  public static String battle(String goodAmounts, String evilAmounts) {
+    
+    Integer goodPower = armyPower(goodAmounts,new int[]{1,2,3,3,4,10});
+    Integer evilPower = armyPower(evilAmounts,new int[]{1,2,2,2,3,5,10});
+    
+    switch(goodPower.compareTo(evilPower))  {
+        case 1:
+          return "Battle Result: Good triumphs over Evil";
+        case -1:
+          return "Battle Result: Evil eradicates all trace of Good";
+        default:
+          return "Battle Result: No victor on this battle field";
+    }
+  }
+  
+  public static int armyPower(String amounts, int[] values) {
+    int sum = 0;
+    String[] races = amounts.split(" ");
+    for(int i = 0;i < races.length; i++) sum += Integer.parseInt(races[i]) * values[i];
+    return sum;
+  }
+}
