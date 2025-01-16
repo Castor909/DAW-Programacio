@@ -11,7 +11,7 @@ public class SmileFaces {
           &&
           (elements[elements.length-1]==')'||elements[elements.length-1]=='D')
           && 
-          has_correct_nose_or_no_nose_at_all(elements) 
+          hasCorrectNoseOrNoNoseAtAll(elements) 
           && 
           elements.length<4 
         ) counter++;      
